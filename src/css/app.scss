@@ -1,1 +1,40 @@
 // app global css in SCSS form
+
+.m-toolbar {
+  min-height: unset;
+  height: 48px;
+  border-bottom: 1px solid rgba(#000, 0.12);
+}
+
+.m-card {
+  &-sm {
+    width: 400px !important;
+  }
+
+  &-md {
+    min-width: 600px !important;
+
+    @media screen and (max-width: 600px) {
+      min-width: unset !important;
+    }
+  }
+}
+
+.m-img-table {
+  width: 50%;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+}
+
+.m-text-h6 {
+  line-height: 24px;
+}
+
+.m-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

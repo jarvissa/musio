@@ -16,6 +16,7 @@
             <q-icon name="person"></q-icon>
           </template>
         </q-input>
+        
         <q-input
           label="Email address"
           v-model="email"
@@ -26,6 +27,7 @@
             <q-icon name="email"></q-icon>
           </template>
         </q-input>
+
         <q-input
           label="Password"
           type="password"
@@ -50,7 +52,7 @@
         @click="submit"
         :loading="loading"
       ></q-btn>
-      <div class="text-subtitle1 q-mt-md">
+      <div class="text-subtitle1 text-center q-mt-md">
         Already have an account?
         <a
           class="auth-change relative-position cursor-pointer"

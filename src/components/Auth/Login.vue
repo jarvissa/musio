@@ -16,6 +16,7 @@
             <q-icon name="email"></q-icon>
           </template>
         </q-input>
+        
         <q-input
           label="Password"
           type="password"
@@ -40,7 +41,7 @@
         @click="submit"
         :loading="loading"
       ></q-btn>
-      <div class="text-subtitle1 q-mt-md">
+      <div class="text-subtitle1 text-center q-mt-md">
         Don't have an account?
         <a
           class="auth-change relative-position cursor-pointer"
@@ -116,7 +117,7 @@ export default defineComponent({
 
 <style lang="scss">
 .auth-card {
-  width: 100%;
+  width: 80%;
   max-width: 400px;
 
   .auth-change {

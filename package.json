@@ -1,7 +1,7 @@
 {
   "name": "musio",
   "version": "0.0.1",
-  "description": "A Quasar Framework App",
+  "description": "Share your music taste",
   "productName": "Musio",
   "author": "jarvissa <ealiyev12125@ada.edu.az>",
   "private": true,
@@ -13,8 +13,10 @@
     "@quasar/extras": "^1.0.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "date-fns": "^2.22.1",
     "firebase": "^8.7.0",
     "quasar": "^2.0.0",
+    "uuid": "^8.3.2",
     "vuex": "^4.0.1"
   },
   "devDependencies": {

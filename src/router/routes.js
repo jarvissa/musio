@@ -1,12 +1,18 @@
 const routes = [
   {
     path: "/",
-    name: "Index",
     component: () => import("layouts/MainLayout.vue"),
     children: [
       {
-        path: "",
-        component: () => import("pages/Index.vue"),
+        path: "/",
+        name: "Dashboard",
+        component: () => import("src/pages/Dashboard.vue"),
+        meta: { requiresAuth: true },
+      },
+      {
+        path: "/playlists",
+        name: "Playlists",
+        component: () => import("src/pages/PublicPlaylists.vue"),
         meta: { requiresAuth: true },
       },
     ],

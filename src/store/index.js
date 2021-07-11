@@ -76,6 +76,7 @@ export default store(function (/* { ssrContext } */) {
       currentAuthComponent(state) {
         return state.currentAuthComponent;
       },
+      
       getUser(state) {
         return state.user;
       },
