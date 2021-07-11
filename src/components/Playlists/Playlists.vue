@@ -8,15 +8,23 @@
   <q-table
     v-else
     :title="isPublic ? 'Public Playlists' : 'Your playlists'"
-    :rows="playlists"
+    :rows="filteredPlaylists"
     :columns="columns"
     :visible-columns="visibleColumns"
     no-data-label="No playlists available"
     rows-per-page-label="Playlists per page"
+    :pagination="{ rowsPerPage: 10 }"
     class="q-ma-lg"
     flat
     bordered
   >
+    <template v-slot:top-right>
+      <q-input label="Search..." v-model="search" color="dark" dense>
+        <template v-slot:prepend>
+          <q-icon name="search"></q-icon>
+        </template>
+      </q-input>
+    </template>
     <template v-slot:body-cell-thumbnail="props">
       <q-td :props="props">
         <q-img :src="props.value" class="m-img-table"></q-img>
@@ -99,7 +107,7 @@
 </template>
 
 <script>
-import { defineComponent, computed } from "vue";
+import { defineComponent, ref, computed } from "vue";
 import { getCollection } from "src/composables/getCollection";
 import { getDocument } from "src/composables/getDocument";
 import { useDocument } from "src/composables/useDocument";
@@ -168,6 +176,14 @@ export default defineComponent({
       "createdAt",
       "actions",
     ];
+    const search = ref("");
+
+    // Computed
+    const filteredPlaylists = computed(() => {
+      return playlists.value.filter((playlist) =>
+        playlist.title.includes(search.value)
+      );
+    });
 
     // Methods
     const favPlaylist = async (id, playlist) => {
@@ -265,9 +281,11 @@ export default defineComponent({
     return {
       uid,
       playlists,
+      filteredPlaylists,
       favs,
       columns,
       visibleColumns,
+      search,
       favPlaylist,
       showPlaylist,
       updatePlaylist,
